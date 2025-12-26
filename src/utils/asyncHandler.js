@@ -1,5 +1,5 @@
 
-export {asyncHandler}
+
 /* 
 const asyncHandler=()=>{}
 const asyncHandler=(func)=>()=>{}
@@ -10,7 +10,7 @@ const asyncHandler=(func)=>{aync()=>{
 
     // promise type code
     const asyncHandler=(requestHandler)=>{
-        (req,res,next)=>{
+       return (req,res,next)=>{
             Promise.resolve(requestHandler(req,res,next)).
             catch((error)=>next(error))
         }
@@ -27,4 +27,4 @@ const asyncHandler=(func)=>{aync()=>{
 //     })
 //  }
 // }
-export {asyncHandler}
+export default asyncHandler;
