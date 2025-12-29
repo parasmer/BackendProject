@@ -55,9 +55,9 @@ refreshToken:{
 userSchema.pre(
     "save", async function (next){
         // to check whether some fied is modified or not
-        if(!this.isModified("password")) return next();
+        if(!this.isModified("password")) return next;
         this.password=await bcrypt.hash(this.password,10)
-        next()
+     
     }
 )
 userSchema.methods.isPasswordCorrect=async function(password){
@@ -89,4 +89,5 @@ process.env.REFRESH_TOKEN_SECRET,
 }
 )
 }
-export const User=mongoose.model("User",userSchema)
+ const User=mongoose.model("User",userSchema)
+export default User;
